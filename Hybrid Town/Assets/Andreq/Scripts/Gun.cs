@@ -24,7 +24,7 @@ public class Gun : Clickable
     private GameObject Slider;
 
     [SerializeField]
-    private GameObject[] PrefabBullet = null;
+    private List<ProductInList> Products = null;
 
     private Vector2 startSliderPosition;
     private Quaternion startMovementPartRotation;
@@ -61,10 +61,12 @@ public class Gun : Clickable
         UpdateClickable();
     }
 
-    void Shoot()
+    protected virtual void Shoot()
     {
         if (CreateBullet())
         {
+            Products[typeBullet].ReduceCount();
+
             Vector2 direction = MovementPart.position - Slider.transform.position;
             var distance = Vector2.Distance(MovementPart.position, Slider.transform.position) / maxStretch;
 
@@ -128,11 +130,10 @@ public class Gun : Clickable
 
     private bool CreateBullet()
     {
-        if (PrefabBullet != null && PrefabBullet.Length > typeBullet && typeBullet >= 0)
+        if (Products?.Capacity > typeBullet && typeBullet >= 0)
         {
-            var bulletObj = (Instantiate(PrefabBullet[typeBullet], BulletPoint.position, Quaternion.identity) as GameObject).transform;
+            var bulletObj = (Instantiate(Products[typeBullet].prefab, BulletPoint.position, Quaternion.identity) as GameObject).transform;
             BulletComponent = bulletObj.GetComponent<Bullet>();
-            Debug.Log("ss");
             return true;
         }
         return false;
@@ -163,7 +164,7 @@ public class Gun : Clickable
     {
         ShowSlider(true);
         // Debug.Log("Click  " + gameObject.name);
-        CanvasFight.SelectBullet.Open(gameObject, PrefabBullet.Select(itm => itm.GetComponent<Bullet>()).ToList());
+        CanvasFight.SelectBullet.Open(gameObject, Products);
     }
 
     protected override void ActionUnClicked()
@@ -176,9 +177,6 @@ public class Gun : Clickable
     public void SelectType(int type = -1)
     {
         Debug.Log(type);
-        if(type >= 0 && PrefabBullet.Length > type)
-        {
-            typeBullet = type;
-        }
+        typeBullet = type;
     }
 }

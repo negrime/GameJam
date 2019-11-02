@@ -5,35 +5,42 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanelSelectBullet :  Panel
+public class PanelSelectBullet : Panel
 {
     [SerializeField]
     private GameObject TemplateButton;
     [SerializeField]
     private GameObject Content;
 
-    private List<Bullet> Bullets;
+    private List<ProductInList> Products;
     private GameObject OpenedObject;
     private List<Button> Buttons = new List<Button>();
+
+    private bool open = false;
 
     void Start()
     {
         gameObject.SetActive(false);
     }
 
-    public void Open(GameObject obj, List<Bullet> list)
+    public void Open(GameObject obj, List<ProductInList> list)
     {
+        open = true;
         OpenedObject = obj;
-        Bullets = list;
+        Products = list;
         Fill();
         gameObject.SetActive(true);
+        Buttons.FirstOrDefault()?.GetComponent<ButtonInList>().OnClick();
     }
 
     public void Close(GameObject obj)
     {
+
         if (OpenedObject.Equals(obj))
         {
-            Bullets = null;
+            open = false;
+
+            Products = null;
             gameObject.SetActive(false);
             Clear();
         }
@@ -42,17 +49,25 @@ public class PanelSelectBullet :  Panel
     private void Fill()
     {
         Clear();
-        foreach (var bullet in Bullets)
+
+        Debug.Log(Products.Count);
+        foreach (var product in Products)
         {
+            Debug.Log(Products.Count);
             var button = Instantiate(TemplateButton, Content.transform) as GameObject;
 
-            var product = bullet.GetProduct();
-
-            button.GetComponent<Image>().sprite = product.Sprite;
-            button.GetComponentInChildren<Text>().text = product.ToString();
-            button.GetComponent<ButtonInList>().Recipient = this;
+            UpdateButtons(button, product);
             Buttons.Add(button.GetComponent<Button>());
         }
+    }
+
+    private void UpdateButtons(GameObject button, ProductInList product)
+    {
+        button.GetComponent<Image>().sprite = product.Sprite;
+        button.GetComponentInChildren<Text>().text = product.ToString();
+        button.GetComponent<ButtonInList>().Recipient = this;
+
+        button.GetComponent<ButtonInList>().Disable(product.Count <= 0);
     }
 
     private void Clear()
@@ -63,19 +78,40 @@ public class PanelSelectBullet :  Panel
             .ForEach(itm =>
             {
                 if (!itm.gameObject.Equals(Content))
-                    Destroy(itm.gameObject); 
+                    Destroy(itm.gameObject);
             });
     }
 
-    public void ClickOnItem(Button button)
+    public bool ClickOnItem(Button button)
     {
-        OpenedObject?.GetComponent<Gun>()?.SelectType(Buttons.IndexOf(button));
+        var value = Buttons.IndexOf(button);
+        if (value != -1)
+        {
+            OpenedObject?.GetComponent<Gun>()?.SelectType(value);
+            return true;
+        }
+        return false;
+
     }
 
-    public override void GetMessage(GameObject sender)
+    public override bool GetMessage(GameObject sender)
     {
         var button = sender.GetComponent<Button>();
         if (button != null)
-            ClickOnItem(button);
+        {
+            return ClickOnItem(button);
+        }
+        return false;
+    }
+
+    public void UpdateDataOnScreen()
+    {
+
+            for (int i = 0; i < 0; i++)
+            {
+                UpdateButtons(Buttons[i].gameObject, Products[i]);
+            }
+        
+
     }
 }

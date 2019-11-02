@@ -1,24 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ProductInList : MonoBehaviour
+[System.Serializable]
+public struct ProductInList
 {
-    [System.Serializable]
-    public struct ProsuctInTable
+    public GameObject prefab;
+    public Sprite Sprite;
+    public string Description;
+    public int Damage;
+    public int Count;
+
+    public override string ToString()
     {
-        public Sprite Sprite;
-        public string Description;
-        public int Damage;
-        public int Count;
+        string str = "";
+        str += "Урон: " + Damage + "\n";
+        str += "Кол-во: " + Count;
 
-        public override string ToString()
-        {
-            string str = "";
-            str += "Урон: " + Damage + "\n";
-            str += "Кол-во: " + Count;
-
-            return str;
-        }
+        return str;
     }
+
 }

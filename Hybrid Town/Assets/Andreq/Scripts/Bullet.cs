@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,9 +7,6 @@ using static ProductInList;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField]
-    private ProsuctInTable prosuctInTable;
-
     public int Damage = 1;
 
     private Rigidbody2D myRigidbody2d;
@@ -49,11 +47,6 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
-    }
-
-    public ProsuctInTable GetProduct()
-    {
-        return prosuctInTable;
     }
 
     // мб тут анимацию и т.д. делать

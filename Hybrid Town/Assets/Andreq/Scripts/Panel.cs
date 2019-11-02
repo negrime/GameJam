@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Panel : MonoBehaviour
 {
-    public abstract void GetMessage(GameObject sender);
+    public abstract bool GetMessage(GameObject sender);
 }
