@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Gun : Clickable
@@ -26,6 +27,7 @@ public class Gun : Clickable
     private GameObject[] PrefabBullet = null;
 
     private Vector2 startSliderPosition;
+    private Quaternion startMovementPartRotation;
     private Bullet BulletComponent;
 
     private Ray _rayToMouse;
@@ -36,6 +38,8 @@ public class Gun : Clickable
     private bool isReady = false;
     private int typeBullet = 0;
 
+    private Guid Id;
+
     void Start()
     {
         _rayToMouse = new Ray(MovementPart.position, Vector3.zero);
@@ -45,7 +49,10 @@ public class Gun : Clickable
         LineRendererUpdate();
 
         startSliderPosition = Slider.transform.position;
+        startMovementPartRotation = MovementPart.rotation;
         ShowSlider(false);
+
+        Id = Guid.NewGuid();
     }
 
     void Update()
@@ -55,11 +62,12 @@ public class Gun : Clickable
             Dragging();
             LineRendererUpdate();
         }
+        UpdateClickable();
     }
 
     void Shoot()
     {
-       if(CreateBullet())
+        if (CreateBullet())
         {
             Vector2 direction = MovementPart.position - Slider.transform.position;
             var distance = Vector2.Distance(MovementPart.position, Slider.transform.position) / maxStretch;
@@ -70,6 +78,7 @@ public class Gun : Clickable
             Slider.transform.position = startSliderPosition;
             _clickedOn = false;
             BulletComponent = null;
+            StartCoroutine(RotateToStarWithDelay(0f));
         }
 
     }
@@ -83,7 +92,7 @@ public class Gun : Clickable
 
     public void OnMouseDownSlider()
     {
-        if(isReady)
+        if (isReady)
         {
             _clickedOn = true;
         }
@@ -110,11 +119,7 @@ public class Gun : Clickable
         mouseWorldPoint.z = 0f;
         Slider.transform.position = mouseWorldPoint;
 
-        var turn = Quaternion.Lerp(MovementPart.rotation, Quaternion.LookRotation(Vector3.forward, Slider.transform.position - MovementPart.position), Time.deltaTime * 1.8f);
-
-        MovementPart.Rotate(turn.eulerAngles);
-
-        MovementPart.GetChild(0).LookAt(Slider.transform);
+        MovementPart.LookAt(Slider.transform, Vector3.forward);
     }
 
     void LineRendererUpdate()
@@ -127,7 +132,7 @@ public class Gun : Clickable
 
     private bool CreateBullet()
     {
-        if(PrefabBullet != null && PrefabBullet.Length > typeBullet && typeBullet >= 0)
+        if (PrefabBullet != null && PrefabBullet.Length > typeBullet && typeBullet >= 0)
         {
             var bulletObj = (Instantiate(PrefabBullet[typeBullet], BulletPoint.position, Quaternion.identity) as GameObject).transform;
             BulletComponent = bulletObj.GetComponent<Bullet>();
@@ -137,18 +142,6 @@ public class Gun : Clickable
         return false;
     }
 
-    protected override void ActionClick()
-    {
-        ShowSlider(true);
-        Debug.Log("Click  " + gameObject.name);
-    }
-
-    protected override void ActionUnClicked()
-    {
-        ShowSlider(false);
-        Debug.Log("UnClick  " + gameObject.name);
-    }
-
     void ShowSlider(bool value)
     {
         isReady = value;
@@ -156,4 +149,31 @@ public class Gun : Clickable
         catapultLine.gameObject.SetActive(value);
     }
 
+    IEnumerator RotateToStarWithDelay(float delay, float power = 1f)
+    {
+        yield return new WaitForSeconds(delay);
+        RotateFromStart(power);
+        if (MovementPart.rotation != startMovementPartRotation)
+            StartCoroutine(RotateToStarWithDelay(0f, power * 1.2f));
+    }
+
+    void RotateFromStart(float power = 1)
+    {
+        MovementPart.rotation = Quaternion.Lerp(MovementPart.rotation, startMovementPartRotation, Time.deltaTime * power);
+
+    }
+
+    protected override void ActionClick()
+    {
+        ShowSlider(true);
+        Debug.Log("Click  " + gameObject.name);
+        CanvasFight.SelectBullet.Open(Id, PrefabBullet.Select(itm => itm.GetComponent<Bullet>()).ToList());
+    }
+
+    protected override void ActionUnClicked()
+    {
+        ShowSlider(false);
+        CanvasFight.SelectBullet.Close(Id);
+        Debug.Log("UnClick  " + gameObject.name);
+    }
 }

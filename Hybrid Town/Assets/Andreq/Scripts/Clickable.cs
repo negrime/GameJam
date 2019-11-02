@@ -12,11 +12,12 @@ public class Clickable : MonoBehaviour
         ActionClick();
     }
 
-    private void Update()
+    protected void UpdateClickable()
     {
-        if(Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ActionUnClicked();
+            SelectedObject?.ActionUnClicked();
+            SelectedObject = null;
         }
     }
 
