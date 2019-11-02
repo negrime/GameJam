@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wood
+  - Iron
+  - Stone
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -40,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Car
+    uniqueID: 590734993
+    locked: 0
+  - name: UI
+    uniqueID: 2787463251
     locked: 0
