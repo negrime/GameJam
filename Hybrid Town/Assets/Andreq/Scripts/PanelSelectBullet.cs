@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanelSelectBullet : MonoBehaviour
+public class PanelSelectBullet :  Panel
 {
     [SerializeField]
     private GameObject TemplateButton;
@@ -13,29 +13,25 @@ public class PanelSelectBullet : MonoBehaviour
     private GameObject Content;
 
     private List<Bullet> Bullets;
-    private Guid OpenedObjectId;
+    private GameObject OpenedObject;
+    private List<Button> Buttons = new List<Button>();
 
     void Start()
     {
         gameObject.SetActive(false);
     }
 
-    void Update()
+    public void Open(GameObject obj, List<Bullet> list)
     {
-        
-    }
-
-    public void Open(Guid Id, List<Bullet> list)
-    {
-        OpenedObjectId = Id;
+        OpenedObject = obj;
         Bullets = list;
         Fill();
         gameObject.SetActive(true);
     }
 
-    public void Close(Guid Id)
+    public void Close(GameObject obj)
     {
-        if (OpenedObjectId.Equals(Id))
+        if (OpenedObject.Equals(obj))
         {
             Bullets = null;
             gameObject.SetActive(false);
@@ -45,7 +41,8 @@ public class PanelSelectBullet : MonoBehaviour
 
     private void Fill()
     {
-        foreach(var bullet in Bullets)
+        Clear();
+        foreach (var bullet in Bullets)
         {
             var button = Instantiate(TemplateButton, Content.transform) as GameObject;
 
@@ -53,14 +50,32 @@ public class PanelSelectBullet : MonoBehaviour
 
             button.GetComponent<Image>().sprite = product.Sprite;
             button.GetComponentInChildren<Text>().text = product.ToString();
+            button.GetComponent<ButtonInList>().Recipient = this;
+            Buttons.Add(button.GetComponent<Button>());
         }
     }
 
     private void Clear()
     {
-        while(Content.transform.childCount != 0)
-        {
-            Destroy(Content.transform.GetChild(0).gameObject);
-        }
+        Buttons.Clear();
+        Content.transform.GetComponentsInChildren<Transform>()
+            .ToList()
+            .ForEach(itm =>
+            {
+                if (!itm.gameObject.Equals(Content))
+                    Destroy(itm.gameObject); 
+            });
+    }
+
+    public void ClickOnItem(Button button)
+    {
+        OpenedObject?.GetComponent<Gun>()?.SelectType(Buttons.IndexOf(button));
+    }
+
+    public override void GetMessage(GameObject sender)
+    {
+        var button = sender.GetComponent<Button>();
+        if (button != null)
+            ClickOnItem(button);
     }
 }

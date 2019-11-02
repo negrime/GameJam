@@ -38,8 +38,6 @@ public class Gun : Clickable
     private bool isReady = false;
     private int typeBullet = 0;
 
-    private Guid Id;
-
     void Start()
     {
         _rayToMouse = new Ray(MovementPart.position, Vector3.zero);
@@ -51,8 +49,6 @@ public class Gun : Clickable
         startSliderPosition = Slider.transform.position;
         startMovementPartRotation = MovementPart.rotation;
         ShowSlider(false);
-
-        Id = Guid.NewGuid();
     }
 
     void Update()
@@ -166,14 +162,23 @@ public class Gun : Clickable
     protected override void ActionClick()
     {
         ShowSlider(true);
-        Debug.Log("Click  " + gameObject.name);
-        CanvasFight.SelectBullet.Open(Id, PrefabBullet.Select(itm => itm.GetComponent<Bullet>()).ToList());
+        // Debug.Log("Click  " + gameObject.name);
+        CanvasFight.SelectBullet.Open(gameObject, PrefabBullet.Select(itm => itm.GetComponent<Bullet>()).ToList());
     }
 
     protected override void ActionUnClicked()
     {
         ShowSlider(false);
-        CanvasFight.SelectBullet.Close(Id);
-        Debug.Log("UnClick  " + gameObject.name);
+        CanvasFight.SelectBullet.Close(gameObject);
+        // Debug.Log("UnClick  " + gameObject.name);
+    }
+
+    public void SelectType(int type = -1)
+    {
+        Debug.Log(type);
+        if(type >= 0 && PrefabBullet.Length > type)
+        {
+            typeBullet = type;
+        }
     }
 }

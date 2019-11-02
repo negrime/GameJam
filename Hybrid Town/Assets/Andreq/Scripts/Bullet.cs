@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static ProductInTable;
+using static ProductInList;
 
 public class Bullet : MonoBehaviour
 {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProductInTable : MonoBehaviour
+public class ProductInList : MonoBehaviour
 {
     [System.Serializable]
     public struct ProsuctInTable
