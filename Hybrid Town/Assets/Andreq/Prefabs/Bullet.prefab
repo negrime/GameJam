@@ -194,3 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5da3ef32a47ab84b9a6f1a8b00a2b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prosuctInTable:
+    Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+    Description: dd
+    Damage: 12
+    Count: 11
+  Damage: 1

@@ -7,36 +7,36 @@ using UnityEngine;
 public class Gun : Clickable
 {
     [SerializeField]
-    private float maxStretch = 3.0f;
+    protected float maxStretch = 3.0f;
     [SerializeField]
-    private Transform MovementPart;
+    protected Transform MovementPart;
     [SerializeField]
-    private Transform BulletPoint;
+    protected Transform BulletPoint;
     [SerializeField]
-    private float SliderRadius = 0f;
+    protected float SliderRadius = 0f;
     [SerializeField]
-    private float Force = 400f;
+    protected float Force = 400f;
 
     [SerializeField]
-    private LineRenderer catapultLine;
+    protected LineRenderer catapultLine;
 
     [SerializeField]
-    private GameObject Slider;
+    protected GameObject Slider;
 
     [SerializeField]
-    private List<ProductInList> Products = null;
+    protected List<ProductInList> Products = null;
 
-    private Vector2 startSliderPosition;
+    protected Vector2 startSliderPosition;
     private Quaternion startMovementPartRotation;
-    private Bullet BulletComponent;
+    protected Bullet BulletComponent;
 
-    private Ray _rayToMouse;
+    protected Ray _rayToMouse;
     private Ray _leftCatapultToProjectile;
-    private float _maxStretchSqr;
-    private bool _clickedOn;
+    protected float _maxStretchSqr;
+    protected bool _clickedOn;
 
     private bool isReady = false;
-    private int typeBullet = 0;
+    protected int typeBullet = 0;
 
     void Start()
     {
@@ -53,7 +53,7 @@ public class Gun : Clickable
 
     void Update()
     {
-        if (isReady && _clickedOn)
+        if (isReady && _clickedOn && typeBullet != -1)
         {
             Dragging();
             LineRendererUpdate();
@@ -65,14 +65,14 @@ public class Gun : Clickable
     {
         if (CreateBullet())
         {
-            Products[typeBullet].ReduceCount();
+            Products[typeBullet].Reduce();
 
             Vector2 direction = MovementPart.position - Slider.transform.position;
             var distance = Vector2.Distance(MovementPart.position, Slider.transform.position) / maxStretch;
 
             BulletComponent.Shoot(direction * Force * distance);
-            catapultLine.SetPosition(1, catapultLine.GetPosition(0));
 
+            catapultLine.SetPosition(1, catapultLine.GetPosition(0));
             Slider.transform.position = startSliderPosition;
             _clickedOn = false;
             BulletComponent = null;
@@ -105,7 +105,7 @@ public class Gun : Clickable
         }
     }
 
-    void Dragging()
+    protected virtual void Dragging()
     {
         Vector3 mouseWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 catapultToMouse = mouseWorldPoint - MovementPart.position;
@@ -128,7 +128,7 @@ public class Gun : Clickable
         catapultLine.SetPosition(1, holdPoint);
     }
 
-    private bool CreateBullet()
+    protected virtual bool CreateBullet()
     {
         if (Products?.Capacity > typeBullet && typeBullet >= 0)
         {
@@ -146,12 +146,16 @@ public class Gun : Clickable
         catapultLine.gameObject.SetActive(value);
     }
 
-    IEnumerator RotateToStarWithDelay(float delay, float power = 1f)
+    protected IEnumerator RotateToStarWithDelay(float delay, float power = 1f)
     {
+        ShowSlider(false);
         yield return new WaitForSeconds(delay);
         RotateFromStart(power);
-        if (MovementPart.rotation != startMovementPartRotation)
+        if (Math.Abs(MovementPart.rotation.eulerAngles.z - startMovementPartRotation.eulerAngles.z) > 0.01f)
             StartCoroutine(RotateToStarWithDelay(0f, power * 1.2f));
+        else
+            ShowSlider(true);
+
     }
 
     void RotateFromStart(float power = 1)
@@ -176,7 +180,6 @@ public class Gun : Clickable
 
     public void SelectType(int type = -1)
     {
-        Debug.Log(type);
         typeBullet = type;
     }
 }

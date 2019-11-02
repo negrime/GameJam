@@ -50,14 +50,13 @@ public class PanelSelectBullet : Panel
     {
         Clear();
 
-        Debug.Log(Products.Count);
         foreach (var product in Products)
         {
-            Debug.Log(Products.Count);
-            var button = Instantiate(TemplateButton, Content.transform) as GameObject;
+            var buttonObj = Instantiate(TemplateButton, Content.transform) as GameObject;
 
-            UpdateButtons(button, product);
-            Buttons.Add(button.GetComponent<Button>());
+            UpdateButtons(buttonObj, product);
+            Buttons.Add(buttonObj.GetComponent<Button>());
+            product.AddButton(buttonObj.GetComponent<ButtonInList>());
         }
     }
 
@@ -67,7 +66,8 @@ public class PanelSelectBullet : Panel
         button.GetComponentInChildren<Text>().text = product.ToString();
         button.GetComponent<ButtonInList>().Recipient = this;
 
-        button.GetComponent<ButtonInList>().Disable(product.Count <= 0);
+        if(product.Count <= 0)
+        button.GetComponent<ButtonInList>().Disable();
     }
 
     private void Clear()
@@ -104,14 +104,14 @@ public class PanelSelectBullet : Panel
         return false;
     }
 
-    public void UpdateDataOnScreen()
+    public void UpdateScreenData()
     {
+        OpenedObject?.GetComponent<Gun>()?.SelectType(-1);
 
-            for (int i = 0; i < 0; i++)
-            {
-                UpdateButtons(Buttons[i].gameObject, Products[i]);
-            }
-        
-
+        for (int i = 0; i < Products.Count; i++)
+        {
+            UpdateButtons(Buttons[i].gameObject, Products[i]);
+        }
     }
+
 }

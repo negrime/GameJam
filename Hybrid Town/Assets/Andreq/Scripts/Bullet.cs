@@ -9,14 +9,14 @@ public class Bullet : MonoBehaviour
 {
     public int Damage = 1;
 
-    private Rigidbody2D myRigidbody2d;
+    protected Rigidbody2D myRigidbody2d;
 
     private void Awake()
     {
         myRigidbody2d = GetComponent<Rigidbody2D>();
     }
 
-    public virtual void Shoot(Vector2 power)
+    public virtual void Shoot(Vector3 power)
     {
 
         myRigidbody2d.isKinematic = false;
@@ -35,6 +35,11 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Unit unit = collision.gameObject.GetComponent<Unit>();
+        if (unit == null)
+        {
+            unit = collision.gameObject.GetComponentInParent<Unit>();
+        }
+
         if (unit != null)
         {
             GiveDamage(unit);
@@ -43,7 +48,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    IEnumerator DestroyMy(float delay)
+    protected IEnumerator DestroyMy(float delay)
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);

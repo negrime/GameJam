@@ -4,13 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public struct ProductInList
+public class ProductInList
 {
     public GameObject prefab;
     public Sprite Sprite;
     public string Description;
     public int Damage;
     public int Count;
+
+    private ButtonInList button;
 
     public override string ToString()
     {
@@ -19,6 +21,29 @@ public struct ProductInList
         str += "Кол-во: " + Count;
 
         return str;
+    }
+
+    public void Reduce(int value = 1)
+    {
+        Count -= value;
+        UpdateButton();
+    }
+
+    public void AddButton(ButtonInList _button)
+    {
+        button = _button;
+        button.product = this;
+    }
+
+    private void UpdateButton()
+    {
+        button.gameObject.GetComponentInChildren<Text>().text = ToString();
+        if (Count <= 0)
+        {
+            CanvasFight.SelectBullet.UpdateScreenData();
+            button.Disable();
+        }
+
     }
 
 }
