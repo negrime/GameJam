@@ -107,11 +107,14 @@ public class PanelSelectBullet : Panel
 
     public void UpdateScreenData()
     {
-        OpenedObject?.GetComponent<Gun>()?.SelectType(-1);
-
-        for (int i = 0; i < Products.Count; i++)
+        if(OpenedObject != null)
         {
-            UpdateButtons(Buttons[i].gameObject, Products[i]);
+            OpenedObject.GetComponent<Gun>()?.SelectType(-1);
+
+            for (int i = 0; i < Products.Count; i++)
+            {
+                UpdateButtons(Buttons[i].gameObject, Products[i]);
+            }
         }
     }
 
