@@ -27,6 +27,7 @@ public class GunLaser : Gun
         }
     }
 
+    // не помню зачем, но если есть - значит нада
     protected override bool CreateBullet()
     {
         var result = base.CreateBullet();

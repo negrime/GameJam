@@ -132,6 +132,7 @@ public class Gun : Clickable
     {
         if (Products?.Capacity > typeBullet && typeBullet >= 0)
         {
+            OnTrigger();
             var bulletObj = (Instantiate(Products[typeBullet].prefab, BulletPoint.position, Quaternion.identity) as GameObject).transform;
             BulletComponent = bulletObj.GetComponent<Bullet>();
             return true;
@@ -181,5 +182,17 @@ public class Gun : Clickable
     public void SelectType(int type = -1)
     {
         typeBullet = type;
+    }
+
+    protected void OnTrigger()
+    {
+        GetComponent<Collider2D>().isTrigger = true;
+        StartCoroutine(OffTrigger(0.15f));
+    }
+
+    IEnumerator OffTrigger(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GetComponent<Collider2D>().isTrigger = false;
     }
 }
