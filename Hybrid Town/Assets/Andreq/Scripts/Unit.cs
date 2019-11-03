@@ -22,12 +22,17 @@ public class Unit : MonoBehaviour
     private Rigidbody2D _myRigidbody2D;
     private bool isFalling = false;
 
+    public GameObject Explosion;
+
+
     private void Awake()
     {
         Id = Guid.NewGuid();
     }
     void Start()
     {
+        Explosion = Resources.Load("Explosion") as GameObject;
+
         _health = MaxHealth;
 
         _myRigidbody2D = GetComponent<Rigidbody2D>();
@@ -73,7 +78,7 @@ public class Unit : MonoBehaviour
         {
             _health = 0;
             Remove();
-
+            Explore();
             gameObject.SetActive(false);
             //Destroy(gameObject);
             //StartCoroutine(DestroyMy(0f));
@@ -164,7 +169,14 @@ public class Unit : MonoBehaviour
         if (isFalling)
         {
             gameObject.SetActive(false);
+            Explore();
         }
+    }
+
+    private void Explore()
+    {
+        var bulletObj = (Instantiate(Explosion, transform.position, Quaternion.identity) as GameObject).transform;
+
     }
 }
 
