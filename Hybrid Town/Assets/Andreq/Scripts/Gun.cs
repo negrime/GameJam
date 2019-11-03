@@ -140,7 +140,7 @@ public class Gun : Clickable
     }
 
     void ShowSlider(bool value)
-    {
+    {   
         isReady = value;
         Slider.SetActive(value);
         catapultLine.gameObject.SetActive(value);
