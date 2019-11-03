@@ -18,6 +18,7 @@ public class PanelSelectBullet : Panel
 
     private bool open = false;
 
+
     void Start()
     {
         gameObject.SetActive(false);

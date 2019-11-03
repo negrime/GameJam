@@ -671,6 +671,8 @@ MonoBehaviour:
   ParentUnit: {fileID: 4426231069336600880}
   LinkedUpBlock: []
   LinkedDownBlock: []
+  LinkedUpUnit: []
+  LinkedDownUnit: []
 --- !u!114 &4426231069336600880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,6 +689,7 @@ MonoBehaviour:
   LinkedDownUnit: []
   Blocks:
   - {fileID: 4426231069336600881}
+  MaxHealth: 1
   Chassis: 0
 --- !u!50 &4426231069336600895
 Rigidbody2D:
