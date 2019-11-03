@@ -21,11 +21,16 @@
           </e>
         </e>
         <e p="Vlad" t="Include">
+          <e p="Menu" t="Include">
+            <e p="Menu.cs" t="Include" />
+            <e p="RotateGear.cs" t="Include" />
+          </e>
           <e p="Scripts" t="Include">
             <e p="Bot.cs" t="Include" />
             <e p="CameraFollow.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="Harpoon.cs" t="Include" />
+            <e p="LogText.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
             <e p="ResourceGenerator.cs" t="Include" />
             <e p="UImanager.cs" t="Include" />
