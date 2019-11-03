@@ -7,7 +7,7 @@ using UnityEngine;
 public class Gun : Clickable
 {
     [SerializeField]
-    protected float maxStretch = 3.0f;
+    protected float maxStretch = 0.5f;
     [SerializeField]
     protected Transform MovementPart;
     [SerializeField]
@@ -49,6 +49,9 @@ public class Gun : Clickable
         startSliderPosition = Slider.transform.position;
         startMovementPartRotation = MovementPart.rotation;
         ShowSlider(false);
+
+        Products.ForEach(itm => itm.prefab.GetComponent<Bullet>().Damage = itm.Damage);
+        catapultLine.useWorldSpace = true;
     }
 
     void Update()
@@ -186,13 +189,13 @@ public class Gun : Clickable
 
     protected void OnTrigger()
     {
-        GetComponent<Collider2D>().isTrigger = true;
+        GetComponents<Collider2D>().ToList().ForEach(itm => itm.isTrigger = true);
         StartCoroutine(OffTrigger(0.15f));
     }
 
     IEnumerator OffTrigger(float delay)
     {
         yield return new WaitForSeconds(delay);
-        GetComponent<Collider2D>().isTrigger = false;
+        GetComponents<Collider2D>().ToList().ForEach(itm => itm.isTrigger = false);
     }
 }
