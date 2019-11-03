@@ -31,6 +31,7 @@
             <e p="GameManager.cs" t="Include" />
             <e p="Harpoon.cs" t="Include" />
             <e p="LogText.cs" t="Include" />
+            <e p="Mouth.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
             <e p="ResourceGenerator.cs" t="Include" />
             <e p="UImanager.cs" t="Include" />

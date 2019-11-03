@@ -6,7 +6,9 @@ public class Bot : MonoBehaviour
 {
     public Vector2 _movePoint;
     [SerializeField]
-    private int _speed;
+    private float _speed;
+    [SerializeField]
+    private float _rotateSpeed;
     void Start()
     {
         _movePoint = NewTarget();
@@ -17,7 +19,7 @@ public class Bot : MonoBehaviour
         Vector3 vectorToTarget = _movePoint - new Vector2(transform.position.x, transform.position.y);
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * _speed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * _rotateSpeed);
         if (Vector2.Distance(transform.position, _movePoint) < 0.2f)
         {
             _movePoint = NewTarget();
@@ -26,9 +28,18 @@ public class Bot : MonoBehaviour
     }
 
 
+
+    void FixedUpdate()
+    {
+
+        
+        
+
+    }
     private Vector2 NewTarget()
     {
-        return new Vector3(Random.Range(0, 10), Random.Range(0, 19));
+        var pos = GameManager.gm.player.transform.position;
+        return new Vector3(Random.Range(pos.x - 15, pos.x + 15), Random.Range(pos.y - 15, pos.y + 15));
     }
     
     private void OnCollisionEnter2D(Collision2D other)
