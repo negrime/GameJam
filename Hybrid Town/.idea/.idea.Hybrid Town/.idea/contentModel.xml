@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\mihao\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\mihao\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_Hybrid Town.-1212105797.00" t="ExcludeRecursive" />
+    <e p="C:\Users\mihao\Desktop\Projects\git\GameJam\Hybrid Town" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Demigiant" t="Include">
+          <e p="DOTween" t="Include">
+            <e p="Modules" t="Include">
+              <e p="DOTweenModuleAudio.cs" t="Include" />
+              <e p="DOTweenModulePhysics.cs" t="Include" />
+              <e p="DOTweenModulePhysics2D.cs" t="Include" />
+              <e p="DOTweenModuleSprite.cs" t="Include" />
+              <e p="DOTweenModuleUI.cs" t="Include" />
+              <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+              <e p="DOTweenModuleUtils.cs" t="Include" />
+            </e>
+            <e p="readme.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Vlad" t="Include">
+          <e p="Menu" t="Include">
+            <e p="Menu.cs" t="Include" />
+            <e p="RotateGear.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="Bot.cs" t="Include" />
+            <e p="CameraFollow.cs" t="Include" />
+            <e p="GameManager.cs" t="Include" />
+            <e p="Harpoon.cs" t="Include" />
+            <e p="LogText.cs" t="Include" />
+            <e p="PlayerMovement.cs" t="Include" />
+            <e p="ResourceGenerator.cs" t="Include" />
+            <e p="UImanager.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Hybrid Town.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

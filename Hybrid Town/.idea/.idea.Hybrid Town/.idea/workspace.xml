@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9bd1643f-8f9d-476d-b0bb-c923e716f7ec" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/PlayerMovement.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1282">
+              <caret line="113" column="54" selection-start-line="113" selection-start-column="54" selection-end-line="113" selection-end-column="54" />
+              <folding>
+                <marker date="1572733685431" expanded="true" signature="6:145" ph="..." />
+                <marker date="1572733685431" expanded="true" signature="190:4470" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="562:739" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="767:1775" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="865:1191" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="1236:1769" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="1273:1417" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="1434:1759" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="1799:2834" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="1952:2035" ph="/* _movement = new Vector2(x, y); ... */" />
+                <marker date="1572733685431" expanded="true" signature="2220:2827" ph="/* transform.Translate(_movement * speed * Time.deltaTime); ... */" />
+                <marker date="1572733685431" expanded="true" signature="2888:2901" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="2957:4458" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="3012:3402" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="3456:3821" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="3876:4241" ph="{...}" />
+                <marker date="1572733685431" expanded="true" signature="4250:4443" ph="/* if (other.gameObject.CompareTag(&quot;Enemy&quot;)) ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Vlad/Menu/RotateGear.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <marker date="1572733292484" expanded="false" signature="6:78" ph="..." />
+                <marker date="1572733292484" expanded="true" signature="119:297" ph="{...}" />
+                <marker date="1572733292484" expanded="true" signature="203:295" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/LogText.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+              <folding>
+                <marker date="1572730974671" expanded="false" signature="6:78" ph="..." />
+                <marker date="1572730974671" expanded="true" signature="116:435" ph="{...}" />
+                <marker date="1572730974671" expanded="true" signature="284:341" ph="{...}" />
+                <marker date="1572730974671" expanded="true" signature="360:433" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Vlad/Menu/Menu.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+              <folding>
+                <marker date="1572726090819" expanded="false" signature="6:113" ph="..." />
+                <marker date="1572726090819" expanded="true" signature="148:404" ph="{...}" />
+                <marker date="1572726090819" expanded="true" signature="220:241" ph="{...}" />
+                <marker date="1572726090819" expanded="true" signature="299:320" ph="{...}" />
+                <marker date="1572726090819" expanded="true" signature="350:402" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/ResourceGenerator.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+              <folding>
+                <marker date="1572739193244" expanded="true" signature="6:127" ph="..." />
+                <marker date="1572739193244" expanded="true" signature="175:1545" ph="{...}" />
+                <marker date="1572739193244" expanded="true" signature="394:466" ph="{...}" />
+                <marker date="1572739193244" expanded="true" signature="500:1543" ph="{...}" />
+                <marker date="1572739193244" expanded="true" signature="948:1042" ph="{...}" />
+                <marker date="1572739193244" expanded="true" signature="1104:1199" ph="{...}" />
+                <marker date="1572739193244" expanded="true" signature="1212:1306" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/Harpoon.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="572">
+              <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+              <folding>
+                <marker date="1572735427159" expanded="true" signature="6:146" ph="..." />
+                <marker date="1572735427159" expanded="true" signature="184:716" ph="{...}" />
+                <marker date="1572735427159" expanded="true" signature="245:303" ph="{...}" />
+                <marker date="1572735427159" expanded="true" signature="332:381" ph="{...}" />
+                <marker date="1572735427159" expanded="true" signature="408:429" ph="{...}" />
+                <marker date="1572735427159" expanded="true" signature="459:508" ph="{...}" />
+                <marker date="1572735427159" expanded="true" signature="561:714" ph="{...}" />
+                <marker date="1572735427159" expanded="true" signature="617:708" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/GameManager.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="482">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <marker date="1572691144634" expanded="true" signature="6:114" ph="..." />
+                <marker date="1572691144634" expanded="true" signature="156:476" ph="{...}" />
+                <marker date="1572691144634" expanded="true" signature="312:473" ph="{...}" />
+                <marker date="1572691144634" expanded="true" signature="342:385" ph="{...}" />
+                <marker date="1572691144634" expanded="true" signature="414:467" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/CameraFollow.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="30" column="79" selection-start-line="30" selection-start-column="79" selection-end-line="30" selection-end-column="79" />
+              <folding>
+                <marker date="1572735264066" expanded="true" signature="6:92" ph="..." />
+                <marker date="1572735264066" expanded="true" signature="135:1287" ph="{...}" />
+                <marker date="1572735264066" expanded="true" signature="371:383" ph="{...}" />
+                <marker date="1572735264066" expanded="true" signature="415:451" ph="{...}" />
+                <marker date="1572735264066" expanded="true" signature="474:1285" ph="{...}" />
+                <marker date="1572735264066" expanded="true" signature="501:1193" ph="{...}" />
+                <marker date="1572735264066" expanded="true" signature="885:1183" ph="/* transform.position = new Vector3(_target.position.x, _target.position.y + .5f, transform.position.z); ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/Bot.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="620">
+              <caret line="33" column="33" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+              <folding>
+                <marker date="1572737162079" expanded="false" signature="6:78" ph="..." />
+                <marker date="1572737162079" expanded="true" signature="112:1622" ph="{...}" />
+                <marker date="1572737162079" expanded="true" signature="207:253" ph="{...}" />
+                <marker date="1572737162079" expanded="true" signature="272:878" ph="{...}" />
+                <marker date="1572737162079" expanded="true" signature="706:764" ph="{...}" />
+                <marker date="1572737162079" expanded="true" signature="912:994" ph="{...}" />
+                <marker date="1572737162079" expanded="true" signature="1054:1620" ph="{...}" />
+                <marker date="1572737162079" expanded="true" signature="1109:1169" ph="{...}" />
+                <marker date="1572737162079" expanded="true" signature="1223:1284" ph="{...}" />
+                <marker date="1572737162079" expanded="true" signature="1339:1398" ph="{...}" />
+                <marker date="1572737162079" expanded="true" signature="1408:1605" ph="/* if (other.gameObject.CompareTag(&quot;Enemy&quot;)) ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/LogText.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Vlad/Menu/RotateGear.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/Bot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/ResourceGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/Harpoon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/UImanager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Vlad/Menu/Menu.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Vlad/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Vlad/Scripts/UImanager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Vlad/Menu/Menu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Vlad/Scripts/LogText.cs" />
+        <option value="$PROJECT_DIR$/Assets/Vlad/Menu/RotateGear.cs" />
+        <option value="$PROJECT_DIR$/Assets/Vlad/Scripts/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Vlad/Scripts/CameraFollow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Vlad/Scripts/Harpoon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Vlad/Scripts/Bot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Vlad/Scripts/ResourceGenerator.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="55" />
+    <option name="y" value="20" />
+    <option name="width" value="1225" />
+    <option name="height" value="780" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="UnityExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AssemblyExplorer" />
+      <pane id="UnityExplorer">
+        <option name="show-hidden-items" value="false" />
+        <option name="show-project-names" value="true" />
+      </pane>
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
+      </pane>
+      <pane id="FileSystemExplorer" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="userSelectedPid" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="userSelectedPid" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9bd1643f-8f9d-476d-b0bb-c923e716f7ec" name="Default Changelist" comment="" />
+      <created>1572644234440</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572644234440</updated>
+      <workItem from="1572644239629" duration="59758000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="59758000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24949698" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="NuGet" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Unit Tests" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Performance Profiler" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Errors In Solution" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Unit Tests Coverage" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/UImanager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <marker date="1572705131921" expanded="false" signature="6:100" ph="..." />
+            <marker date="1572705131921" expanded="true" signature="140:422" ph="{...}" />
+            <marker date="1572705131921" expanded="true" signature="241:420" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/GameManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <marker date="1572691144634" expanded="true" signature="6:114" ph="..." />
+            <marker date="1572691144634" expanded="true" signature="156:476" ph="{...}" />
+            <marker date="1572691144634" expanded="true" signature="312:473" ph="{...}" />
+            <marker date="1572691144634" expanded="true" signature="342:385" ph="{...}" />
+            <marker date="1572691144634" expanded="true" signature="414:467" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Vlad/Menu/Menu.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+          <folding>
+            <marker date="1572726090819" expanded="false" signature="6:113" ph="..." />
+            <marker date="1572726090819" expanded="true" signature="148:404" ph="{...}" />
+            <marker date="1572726090819" expanded="true" signature="220:241" ph="{...}" />
+            <marker date="1572726090819" expanded="true" signature="299:320" ph="{...}" />
+            <marker date="1572726090819" expanded="true" signature="350:402" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/LogText.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding>
+            <marker date="1572730974671" expanded="false" signature="6:78" ph="..." />
+            <marker date="1572730974671" expanded="true" signature="116:435" ph="{...}" />
+            <marker date="1572730974671" expanded="true" signature="284:341" ph="{...}" />
+            <marker date="1572730974671" expanded="true" signature="360:433" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/PlayerMovement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1282">
+          <caret line="113" column="54" selection-start-line="113" selection-start-column="54" selection-end-line="113" selection-end-column="54" />
+          <folding>
+            <marker date="1572733685431" expanded="true" signature="6:145" ph="..." />
+            <marker date="1572733685431" expanded="true" signature="190:4470" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="562:739" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="767:1775" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="865:1191" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="1236:1769" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="1273:1417" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="1434:1759" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="1799:2834" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="1952:2035" ph="/* _movement = new Vector2(x, y); ... */" />
+            <marker date="1572733685431" expanded="true" signature="2220:2827" ph="/* transform.Translate(_movement * speed * Time.deltaTime); ... */" />
+            <marker date="1572733685431" expanded="true" signature="2888:2901" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="2957:4458" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="3012:3402" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="3456:3821" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="3876:4241" ph="{...}" />
+            <marker date="1572733685431" expanded="true" signature="4250:4443" ph="/* if (other.gameObject.CompareTag(&quot;Enemy&quot;)) ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/CameraFollow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="30" column="79" selection-start-line="30" selection-start-column="79" selection-end-line="30" selection-end-column="79" />
+          <folding>
+            <marker date="1572735264066" expanded="true" signature="6:92" ph="..." />
+            <marker date="1572735264066" expanded="true" signature="135:1287" ph="{...}" />
+            <marker date="1572735264066" expanded="true" signature="371:383" ph="{...}" />
+            <marker date="1572735264066" expanded="true" signature="415:451" ph="{...}" />
+            <marker date="1572735264066" expanded="true" signature="474:1285" ph="{...}" />
+            <marker date="1572735264066" expanded="true" signature="501:1193" ph="{...}" />
+            <marker date="1572735264066" expanded="true" signature="885:1183" ph="/* transform.position = new Vector3(_target.position.x, _target.position.y + .5f, transform.position.z); ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Vlad/Menu/RotateGear.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <marker date="1572733292484" expanded="false" signature="6:78" ph="..." />
+            <marker date="1572733292484" expanded="true" signature="119:297" ph="{...}" />
+            <marker date="1572733292484" expanded="true" signature="203:295" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/Harpoon.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+          <folding>
+            <marker date="1572735427159" expanded="true" signature="6:146" ph="..." />
+            <marker date="1572735427159" expanded="true" signature="184:716" ph="{...}" />
+            <marker date="1572735427159" expanded="true" signature="245:303" ph="{...}" />
+            <marker date="1572735427159" expanded="true" signature="332:381" ph="{...}" />
+            <marker date="1572735427159" expanded="true" signature="408:429" ph="{...}" />
+            <marker date="1572735427159" expanded="true" signature="459:508" ph="{...}" />
+            <marker date="1572735427159" expanded="true" signature="561:714" ph="{...}" />
+            <marker date="1572735427159" expanded="true" signature="617:708" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/Bot.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="33" column="33" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+          <folding>
+            <marker date="1572737162079" expanded="false" signature="6:78" ph="..." />
+            <marker date="1572737162079" expanded="true" signature="112:1622" ph="{...}" />
+            <marker date="1572737162079" expanded="true" signature="207:253" ph="{...}" />
+            <marker date="1572737162079" expanded="true" signature="272:878" ph="{...}" />
+            <marker date="1572737162079" expanded="true" signature="706:764" ph="{...}" />
+            <marker date="1572737162079" expanded="true" signature="912:994" ph="{...}" />
+            <marker date="1572737162079" expanded="true" signature="1054:1620" ph="{...}" />
+            <marker date="1572737162079" expanded="true" signature="1109:1169" ph="{...}" />
+            <marker date="1572737162079" expanded="true" signature="1223:1284" ph="{...}" />
+            <marker date="1572737162079" expanded="true" signature="1339:1398" ph="{...}" />
+            <marker date="1572737162079" expanded="true" signature="1408:1605" ph="/* if (other.gameObject.CompareTag(&quot;Enemy&quot;)) ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Vlad/Scripts/ResourceGenerator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+          <folding>
+            <marker date="1572739193244" expanded="true" signature="6:127" ph="..." />
+            <marker date="1572739193244" expanded="true" signature="175:1545" ph="{...}" />
+            <marker date="1572739193244" expanded="true" signature="394:466" ph="{...}" />
+            <marker date="1572739193244" expanded="true" signature="500:1543" ph="{...}" />
+            <marker date="1572739193244" expanded="true" signature="948:1042" ph="{...}" />
+            <marker date="1572739193244" expanded="true" signature="1104:1199" ph="{...}" />
+            <marker date="1572739193244" expanded="true" signature="1212:1306" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
