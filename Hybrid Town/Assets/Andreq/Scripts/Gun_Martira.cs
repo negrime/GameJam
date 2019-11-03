@@ -11,8 +11,9 @@ public class Gun_Martira : Gun
 
     protected override void Shoot()
     {
-        if (CreateBullet())
+        if (CreateBullet() && QueueShoot)
         {
+            Game.ChangeQueue();
             Products[typeBullet].Reduce();
             Vector2 direction = MovementPart.position - Slider.transform.position;
             var distance = Vector2.Distance(MovementPart.position, Slider.transform.position) / maxStretch;

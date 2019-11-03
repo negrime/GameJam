@@ -38,6 +38,8 @@ public class Gun : Clickable
     private bool isReady = false;
     protected int typeBullet = 0;
 
+    public bool QueueShoot = false;
+
     void Start()
     {
         _rayToMouse = new Ray(MovementPart.position, Vector3.zero);
@@ -56,7 +58,7 @@ public class Gun : Clickable
 
     void Update()
     {
-        if (isReady && _clickedOn && typeBullet != -1)
+        if (isReady && _clickedOn && typeBullet != -1 && QueueShoot)
         {
             Dragging();
             LineRendererUpdate();
@@ -66,8 +68,9 @@ public class Gun : Clickable
 
     protected virtual void Shoot()
     {
-        if (CreateBullet())
+        if (CreateBullet() && QueueShoot)
         {
+            Game.ChangeQueue();
             Products[typeBullet].Reduce();
 
             Vector2 direction = MovementPart.position - Slider.transform.position;
@@ -93,7 +96,7 @@ public class Gun : Clickable
 
     public void OnMouseDownSlider()
     {
-        if (isReady)
+        if (isReady && QueueShoot)
         {
             _clickedOn = true;
         }
@@ -101,7 +104,7 @@ public class Gun : Clickable
 
     public void OnMouseUpSlider()
     {
-        if (isReady)
+        if (isReady && QueueShoot)
         {
             _clickedOn = false;
             Shoot();
@@ -144,10 +147,21 @@ public class Gun : Clickable
     }
 
     void ShowSlider(bool value)
-    {   
-        isReady = value;
-        Slider.SetActive(value);
-        catapultLine.gameObject.SetActive(value);
+    {   if(value)
+        {
+            if(QueueShoot)
+            {
+                isReady = value;
+                Slider.SetActive(value);
+                catapultLine.gameObject.SetActive(value);
+            }
+        } else
+        {
+            isReady = value;
+            Slider.SetActive(value);
+            catapultLine.gameObject.SetActive(value);
+        }
+
     }
 
     protected IEnumerator RotateToStarWithDelay(float delay, float power = 1f)
@@ -172,7 +186,13 @@ public class Gun : Clickable
     {
         ShowSlider(true);
         // Debug.Log("Click  " + gameObject.name);
+        if(QueueShoot)
         CanvasFight.SelectBullet.Open(gameObject, Products);
+    }
+
+    public void CloseWindow()
+    {
+        ActionUnClicked();
     }
 
     protected override void ActionUnClicked()
