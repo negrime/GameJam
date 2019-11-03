@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,10 +13,53 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float rotateSpeed;
     private float x, y;
+
+    public GameObject harppon;
+
+    private float time;
+    [SerializeField] 
+    private float harpponTime;
+
+    private bool isNotificated = false;
+
+    private Transform _canvasTransform;
     void Start()
     {
+        _canvasTransform = FindObjectOfType<Canvas>().transform;
+        time = 0;
         size = transform.localScale.x;
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+
+    private void Update()
+    {
+        if (time >= 0)
+            time -= Time.deltaTime;
+        else if (!isNotificated)
+        {
+            isNotificated = true;
+            var go = Resources.Load("LogText") as GameObject;
+            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + 1),
+                Quaternion.identity, _canvasTransform);
+            //go.GetComponent<Text>().color = Color.green;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (time <= 0)
+            {
+                harppon.SetActive(true);
+                time = harpponTime;
+                isNotificated = false;
+            }
+            else
+            {
+                var go = Resources.Load("LogText") as GameObject;
+                go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + 1),
+                    Quaternion.identity, _canvasTransform);
+                go.GetComponent<Text>().text = "Гарпун перезаряжается";
+            }
+        }
     }
 
     void FixedUpdate()
@@ -54,24 +99,40 @@ public class PlayerMovement : MonoBehaviour
         {
             GameManager.gm.wood++;
             Destroy(other.gameObject);
+            
+            var go = Resources.Load("LogText") as GameObject;
+            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + 1),
+                Quaternion.identity, _canvasTransform);
+            go.GetComponent<Text>().text = "+ 1 дерево";
+            
         }
         else if (other.gameObject.CompareTag("Iron"))
         {
+            var go = Resources.Load("LogText") as GameObject;
+            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + 1),
+                Quaternion.identity, _canvasTransform);
+            go.GetComponent<Text>().text = "+ 1 железо";
             GameManager.gm.iron++;
             Destroy(other.gameObject);
 
         }
         else if (other.gameObject.CompareTag("Stone"))
         {
+            var go = Resources.Load("LogText") as GameObject;
+            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + 1),
+                Quaternion.identity, _canvasTransform);
+            go.GetComponent<Text>().text = "+ 1 камень";
             GameManager.gm.stone++;
             Destroy(other.gameObject);
         }
 
-        if (other.gameObject.CompareTag("Enemy"))
+       /* if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Есть контакт");
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * 1000);
-        }
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * 250);
+        } */
         
     }
+    
+    
 }
