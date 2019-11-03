@@ -28,18 +28,10 @@ public class Bot : MonoBehaviour
     }
 
 
-
-    void FixedUpdate()
-    {
-
-        
-        
-
-    }
     private Vector2 NewTarget()
     {
         var pos = GameManager.gm.player.transform.position;
-        return new Vector3(Random.Range(pos.x - 15, pos.x + 15), Random.Range(pos.y - 15, pos.y + 15));
+        return new Vector3(Random.Range(pos.x - 20, pos.x + 20), Random.Range(pos.y - 20, pos.y + 20));
     }
     
     private void OnCollisionEnter2D(Collision2D other)

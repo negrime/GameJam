@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Vlad/Scenes/Menu.unity
+    guid: 386c18ecbd2287747ab0fe4ab1f1036f
+  - enabled: 1
     path: Assets/Vlad/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Vlad/Scenes/Menu.unity
-    guid: 386c18ecbd2287747ab0fe4ab1f1036f
+    path: Assets/Andreq/Scenes/Fight.unity
+    guid: a156d450e57c47c4b941b573fc3b09bc
   m_configObjects: {}

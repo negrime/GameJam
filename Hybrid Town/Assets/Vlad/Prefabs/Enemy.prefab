@@ -14358,7 +14358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movePoint: {x: 0, y: 0}
-  _speed: 1.8
+  _speed: 2
   _rotateSpeed: 0.6
 --- !u!61 &7551955234584941643
 BoxCollider2D:
