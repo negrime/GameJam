@@ -25,25 +25,21 @@ public class ResourceGenerator : MonoBehaviour
     {
         Transform p = GameManager.gm.player.transform;
         int number = Random.Range(1, 3) % 2 != 0 ? -1 : 1;
-        var k = new Vector3(Random.Range((p.position.x  + 2) * number, 8 * -number ), Random.Range((p.position.y + 2) * number, 8 * -number ), 0);
+        var k = new Vector3(Random.Range((p.position.x  + 6) * number, 10 * -number ), Random.Range((p.position.y + 6) * number, 10 * -number ), 0);
         
         int resourceChance = Random.Range(1, 101);
 
         GameObject resource;
-        Debug.Log(resourceChance);
         if (resourceChance >= 1 && resourceChance < 60)
         {
-            Debug.Log("Spawn wood");
             resource = resources[0];
         }
         else if (resourceChance >= 60 && resourceChance < 90)
         {
-            Debug.Log("Spawn stone");
             resource = resources[1];
         }
         else
         {
-            Debug.Log("Spawn iron");
             resource = resources[2];
         }
             

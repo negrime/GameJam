@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -11,7 +12,8 @@ public class GameManager : MonoBehaviour
     public int wood;
     public int iron;
     public int stone;
-    private void Start()
+
+    private void Awake()
     {
         if (gm == null)
         {
@@ -22,5 +24,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 
 }
