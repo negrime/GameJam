@@ -34,8 +34,8 @@ public class Harpoon : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Ke");
-         //   SceneManager.LoadScene("");
+         //   Debug.Log("Ke");
+           SceneManager.LoadScene("Fight");
         }
     }
 }

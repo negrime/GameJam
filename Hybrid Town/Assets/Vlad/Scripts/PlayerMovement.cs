@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using System.Net.Http.Headers;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public float rotateSpeed;
     private float x, y;
 
+    public GameObject mouth;
+    private bool isharppon = false;
     public GameObject harppon;
 
     private float time;
@@ -31,6 +38,10 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    private void FalseHarppon()
+    {
+        isharppon = false;
+    }
 
     private void Update()
     {
@@ -46,8 +57,10 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            
             if (time <= 0)
             {
+                //isharppon
                 harppon.SetActive(true);
                 time = harpponTime;
                 isNotificated = false;
@@ -90,7 +103,37 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
+        if (other.gameObject.CompareTag("Enemy") && !harppon.activeSelf)
+        {
+            mouth.SetActive(true);
+            var go = Resources.Load("DestroyCity") as GameObject;
+            go = Instantiate(go, new Vector2(other.transform.position.x, other.transform.position.y),
+                Quaternion.identity);
+                go = Resources.Load("DestroyCity") as GameObject;
+            go = Instantiate(go, new Vector2(other.transform.position.x, other.transform.position.y),
+                Quaternion.identity);
+            
+            
+            GameManager.gm.wood += 25;
+            GameManager.gm.stone += 15;
+            GameManager.gm.iron += 5;
+            Destroy(other.gameObject);
+            
+            go = Resources.Load("LogText") as GameObject;
+            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + 1.5f),
+                Quaternion.identity, _canvasTransform);
+            go.GetComponent<Text>().text = "+ 25 дерева";
+            
+             go = Resources.Load("LogText") as GameObject;
+            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + 1.25f),
+                Quaternion.identity, _canvasTransform);
+            go.GetComponent<Text>().text = "+ 15 камня";
+            
+             go = Resources.Load("LogText") as GameObject;
+            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + 1),
+                Quaternion.identity, _canvasTransform);
+            go.GetComponent<Text>().text = "+ 5 железа";
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -99,9 +142,8 @@ public class PlayerMovement : MonoBehaviour
         {
             GameManager.gm.wood++;
             Destroy(other.gameObject);
-            
             var go = Resources.Load("LogText") as GameObject;
-            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + 1),
+            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + Random.Range(1, 2f)),
                 Quaternion.identity, _canvasTransform);
             go.GetComponent<Text>().text = "+ 1 дерево";
             
@@ -109,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
         else if (other.gameObject.CompareTag("Iron"))
         {
             var go = Resources.Load("LogText") as GameObject;
-            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + 1),
+            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + Random.Range(1, 2f)),
                 Quaternion.identity, _canvasTransform);
             go.GetComponent<Text>().text = "+ 1 железо";
             GameManager.gm.iron++;
@@ -119,20 +161,19 @@ public class PlayerMovement : MonoBehaviour
         else if (other.gameObject.CompareTag("Stone"))
         {
             var go = Resources.Load("LogText") as GameObject;
-            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + 1),
+            go = Instantiate(go, new Vector2(transform.position.x, transform.position.y  + Random.Range(1, 2f)),
                 Quaternion.identity, _canvasTransform);
             go.GetComponent<Text>().text = "+ 1 камень";
             GameManager.gm.stone++;
             Destroy(other.gameObject);
         }
-
-       /* if (other.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("Есть контакт");
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * 250);
-        } */
+        
         
     }
+    
+    
+    
+
     
     
 }
