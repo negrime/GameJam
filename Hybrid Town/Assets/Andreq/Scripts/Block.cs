@@ -9,13 +9,23 @@ public class Block : MonoBehaviour
     public List<Block> LinkedUpBlock = new List<Block>();
     public List<Block> LinkedDownBlock = new List<Block>();
 
+    public List<Unit> LinkedUpUnit = new List<Unit>();
+    public List<Unit> LinkedDownUnit = new List<Unit>();
+
+
     public static bool Emit = false;
 
     private void Awake()
     {
-        CalculateLinkedUnit(draw: true);
+         Calculate(draw: true);
     }
-    public (List<Unit>, List<Unit>) CalculateLinkedUnit(bool draw = false)
+
+    public (List<Unit>, List<Unit>) CalculateLinkedUnit()
+    {
+        return Calculate();
+        return (LinkedDownUnit, LinkedUpUnit);
+    }
+    public (List<Unit>, List<Unit>) Calculate(bool draw = false)
     {
         float offset = 0.2f;
         Vector3 startUp = new Vector3(transform.position.x, transform.position.y + offset, transform.position.z);
@@ -27,16 +37,18 @@ public class Block : MonoBehaviour
         if (draw)
         {
             Debug.DrawRay(startUp, Vector2.up, Color.green, duration);
-            Debug.DrawRay(startDown, Vector2.down, Color.green, duration);
             #region
             /*
+            Debug.DrawRay(startDown, Vector2.down, Color.green, duration);
             Debug.DrawRay(start, Vector2.left, Color.green, duration);
             Debug.DrawRay(start, Vector2.right, Color.green, duration);
             */
             #endregion
         }
 
-        var hit_up = Physics2D.Raycast(startUp, Vector2.up, distance);
+        var hit_up = Physics2D.Raycast(startUp, Vector2.up, 10000, LayerMask.GetMask("Struct"));
+
+        //var hit_up = Physics2D.Raycast(startUp, Vector2.up, distance);
         if (hit_up.collider != null)
         {
             var collider = hit_up.collider;
@@ -45,6 +57,8 @@ public class Block : MonoBehaviour
                 var block = collider.GetComponent<Block>();
                 LinkedUpBlock.Add(block);
                 block.LinkedDownBlock.Add(this);
+
+                // block.ParentUnit.GetLinkedLists();
             }
         }
 
@@ -92,6 +106,11 @@ public class Block : MonoBehaviour
                             .Select(itm => itm.ParentUnit)
                             .Distinct()
                             .ToList();
+        this.LinkedDownUnit = LinkedDownUnit;
+        this.LinkedUpUnit = LinkedUpUnit;
+
+        if (LinkedDownUnit == null || LinkedUpUnit == null)
+            Debug.LogError("Пиздец");
 
         return (LinkedDownUnit, LinkedUpUnit);
     }

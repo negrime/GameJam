@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 386231268943071853}
   m_Layer: 0
   m_Name: Unit_O
-  m_TagString: block
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,6 +86,7 @@ MonoBehaviour:
   - {fileID: 386231267823047065}
   - {fileID: 386231267871239549}
   - {fileID: 386231268240297971}
+  MaxHealth: 1
   Chassis: 0
 --- !u!50 &386231268943071853
 Rigidbody2D:
@@ -335,7 +336,7 @@ PrefabInstance:
     - target: {fileID: 8047409956317439681, guid: 1395a569ed1ed7c488019c21d2877176,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.008
       objectReference: {fileID: 0}
     - target: {fileID: 8047409956317439681, guid: 1395a569ed1ed7c488019c21d2877176,
         type: 3}

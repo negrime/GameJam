@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 783554675679325339}
   m_Layer: 0
   m_Name: Unit_Line
-  m_TagString: block
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
   - {fileID: 4643325321710012085}
   - {fileID: 7596209897173593234}
   - {fileID: 8152795896575323688}
-  Chassis: 1
+  Chassis: 0
 --- !u!50 &783554675679325339
 Rigidbody2D:
   serializedVersion: 4

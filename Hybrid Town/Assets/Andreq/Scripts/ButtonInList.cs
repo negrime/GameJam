@@ -66,7 +66,7 @@ public class ButtonInList : MonoBehaviour
         button = GetComponent<Button>();
         image = GetComponent<Image>();
 
-        image.color = Color.yellow;
+        image.color = Color.green;
     }
 
     // for UI

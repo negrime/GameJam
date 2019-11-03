@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour
 
     public Guid Id;
 
-    public int MaxHealth { get; set; } = 1;
+    public int MaxHealth = 1;
     public bool IsDead { get; private set; } = false;
 
     public bool Chassis = false;
@@ -34,7 +34,8 @@ public class Unit : MonoBehaviour
         _myRigidbody2D.isKinematic = true;
 
         GetLinkedLists();
-        if(LinkedDownUnit.Count == 0 && !Chassis)
+
+        if (LinkedDownUnit.Count == 0 && !Chassis)
         {
             Died();
         }
@@ -57,7 +58,7 @@ public class Unit : MonoBehaviour
     private void Died()
     {
         DeleteFromLists();
-        if(_health > 0)
+        if (_health > 0)
         {
             // change this
             _health = 0;
@@ -77,11 +78,13 @@ public class Unit : MonoBehaviour
             //Destroy(gameObject);
             //StartCoroutine(DestroyMy(0f));
         }
+
     }
 
     private void SetFall()
     {
         _myRigidbody2D.isKinematic = false;
+        //isFalling = true;
         StartCoroutine(DestroyMy(0f));
     }
 
@@ -105,7 +108,7 @@ public class Unit : MonoBehaviour
 
     }
 
-    private void GetLinkedLists()
+    public void GetLinkedLists()
     {
         UnitEqualityComparer unitComparer = new UnitEqualityComparer();
 
@@ -113,8 +116,19 @@ public class Unit : MonoBehaviour
                  .Select(itm => itm.CalculateLinkedUnit())
                  .ToList(); // надо 
 
-        linkedLists.ForEach(list => LinkedDownUnit.AddRange(list.Item1.Where(itm => !Equals(itm.Id, Id))));
-        linkedLists.ForEach(list => LinkedUpUnit.AddRange(list.Item2.Where(itm => !Equals(itm.Id, Id))));
+        try
+        {
+            linkedLists.ForEach(list => LinkedDownUnit.AddRange(list.Item1.Where(itm => !Equals(itm.Id, Id))));
+            linkedLists.ForEach(list => LinkedUpUnit.AddRange(list.Item2.Where(itm => !Equals(itm.Id, Id))));
+
+        }
+        catch
+        {
+            Debug.LogError("Сука " + gameObject.name);
+        }
+
+ 
+
 
         LinkedDownUnit = LinkedDownUnit.Distinct(unitComparer).ToList();
         LinkedUpUnit = LinkedUpUnit.Distinct(unitComparer).ToList();
@@ -124,7 +138,14 @@ public class Unit : MonoBehaviour
     public void DeleteUnitLinkedListAndCheck(Unit unit)
     {
         LinkedDownUnit.Remove(unit);
-        if(LinkedDownUnit.Count == 0 && !Chassis)
+        Check();
+
+    }
+
+    public void Check()
+    {
+        //bool result = LinkedDownUnit.All(itm => itm.gameObject.active == false);
+        if (LinkedDownUnit.Count == 0 && !Chassis)
         {
             Died();
         }
@@ -132,12 +153,15 @@ public class Unit : MonoBehaviour
 
     public void DeleteFromLists()
     {
-        LinkedUpUnit.ForEach(itm => itm.DeleteUnitLinkedListAndCheck(this));
+        LinkedUpUnit.ForEach(itm => {
+            itm.DeleteUnitLinkedListAndCheck(this);
+            //itm.Check();
+            });
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(isFalling)
+        if (isFalling)
         {
             gameObject.SetActive(false);
         }
