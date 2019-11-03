@@ -6,8 +6,9 @@ public class GunLaser : Gun
 {
     protected override void Shoot()
     {
-        if (CreateBullet())
+        if (CreateBullet() && QueueShoot)
         {
+            Game.ChangeQueue();
             Products[typeBullet].Reduce();
 
             Vector2 direction = MovementPart.position - Slider.transform.position;
