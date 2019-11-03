@@ -37,7 +37,7 @@ public class PanelSelectBullet : Panel
     public void Close(GameObject obj)
     {
 
-        if (OpenedObject.Equals(obj))
+        if (OpenedObject != null && OpenedObject.Equals(obj))
         {
             open = false;
 

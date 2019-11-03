@@ -13,12 +13,14 @@ public class Block : MonoBehaviour
     public List<Unit> LinkedDownUnit = new List<Unit>();
 
 
+
     public static bool Emit = false;
 
     private void Awake()
     {
          Calculate(draw: true);
     }
+
 
     public (List<Unit>, List<Unit>) CalculateLinkedUnit()
     {

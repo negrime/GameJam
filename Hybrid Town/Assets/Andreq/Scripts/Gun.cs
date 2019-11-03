@@ -190,6 +190,7 @@ public class Gun : Clickable
         CanvasFight.SelectBullet.Open(gameObject, Products);
     }
 
+
     public void CloseWindow()
     {
         ActionUnClicked();
